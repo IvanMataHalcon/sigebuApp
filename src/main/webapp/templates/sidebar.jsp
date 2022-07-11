@@ -16,14 +16,11 @@
     }
     .sidebar-container .menu{
         width: 10rem;
-
-
     }
     a:hover{
         text-decoration: none;
         background-color: rgba(9, 120, 194, 0.726);
         width: 100%;
-
     }
     .logo{
         height: 20%;

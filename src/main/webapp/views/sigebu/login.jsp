@@ -15,7 +15,6 @@
   <title>SIGEBU</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/style.css">
-
 </head>
 <body class="body_login">
 <br>
@@ -48,7 +47,7 @@
 
             <br>
             <div class="col-12 text-center" >
-              <p>¿Aún no tienes una cuenta?<a href="registro.html" style="text-decoration: none;"> Registrate</a></p>
+              <p>¿Aún no tienes una cuenta?<a href="registro.jsp" style="text-decoration: none;"> Registrate</a></p>
             </div>
           </form>
         </div>

@@ -33,7 +33,7 @@
 
         </div>
         <div class="menu">
-            <a href="#" class="d-block text-light p-4 ">CATALOGO</a>
+            <a href="#" class="d-block text-light p-4 "></i>CATALOGO</a>
             <a href="#" class="d-block text-light p-4">PRESTAMOS</a>
             <a href="#" class="d-block text-light p-4">MI PERFIL</a>
         </div>

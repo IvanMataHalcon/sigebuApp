@@ -85,7 +85,7 @@
         </div>
         <br>
         <div class="col-12 text-center" >
-          <p>¿Ya tienes una cuenta?<a href="/views/sigebu/login.jsp" style="text-decoration: none;"> Iniciar Sesión</a></p>
+          <p>¿Ya tienes una cuenta?<a href="login.jsp" style="text-decoration: none;"> Iniciar Sesión</a></p>
         </div>
       </form>
     </div>

@@ -38,7 +38,7 @@
         width: 33.33%;
         height: 100%;
     }
-    #div_relleno{
+    .div_relleno{
         background-color: transparent;
         width: 33.33%;
         height: 100%;
@@ -52,15 +52,15 @@
 
     </div>
     <div class="row">
-        <div id="div_relleno">
+        <div class="div_relleno">
 
         </div>
         <div  id="bienvenido">
             <h1 style="color: white;">BIENVENIDO A SIGEBU</h1>
-            <a href="hello-servlet" class="text-light">INGRESAR</a>
+            <a href="/hello-servlet" class="text-light">INGRESAR</a>
 
         </div>
-        <div id="div_relleno">
+        <div class="div_relleno">
 
         </div>
 

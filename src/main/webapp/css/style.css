@@ -1,0 +1,48 @@
+.logo_login{
+    margin: auto;
+    width: 400px;
+    display: block;
+}
+.logo_sigebu {
+    width: 150px;
+    margin:auto;
+    display: inline-block;
+    padding-bottom: 18px;
+}
+.eye{
+    right: 0;
+    width: 30px;
+    position: absolute;
+    transform: translateY(-120%);
+    margin-right: 50px;
+    cursor: pointer;
+}
+.container2{
+    width: 750px;
+    margin: auto;
+    padding: 0 15px;
+    background-color: #ffff;
+    border-width: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(7, 68, 155, 0.9);
+}
+
+.body_login{
+    display: block;
+    background: linear-gradient(rgba(255,255,255,0.9) -18%, rgba(0, 150, 114, 0.9) 70%, rgba(0, 41,97, 0.9) );
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat ;
+    background-size: cover;
+}
+.cerrar{
+    right: 0;
+    position: absolute;
+    height: 70px;
+    width: 140px;
+
+}
+.cerrar:hover{
+    background-color: #035240;
+}

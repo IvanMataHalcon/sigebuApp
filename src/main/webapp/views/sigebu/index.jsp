@@ -14,6 +14,7 @@
 <body>
 <jsp:include page="../../templates/navbar.jsp"></jsp:include>
 <jsp:include page="../../templates/sidebar.jsp"></jsp:include>
+<jsp:include page="../../templates/footer.jsp"/>
 
 </body>
 </html>

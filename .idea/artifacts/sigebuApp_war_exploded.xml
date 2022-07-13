@@ -13,6 +13,20 @@
         <element id="directory" name="classes">
           <element id="module-output" name="sigebuApp" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ojdbc11-production:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ojdbc11:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:ucp11:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.jdbc:rsi:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:oraclepki:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:osdt_core:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.security:osdt_cert:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.ha:simplefan:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.ha:ons:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.nls:orai18n:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.xml:xdb:21.5.0.0" />
+          <element id="library" level="project" name="Maven: com.oracle.database.xml:xmlparserv2:21.5.0.0" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/sigebuApp-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />

@@ -50,17 +50,16 @@ public class UsuarioDAO{
         try{
             conn = new SQLConnection().getConnection();
             String query = "INSERT INTO USUARIO"+
-                    "nombre, apellidos, curp, matricula, edad, tipo, direccion, password_user,email"+
-                    "VALUES (?,?,?,?,?,?,?,?,?)";
+                    "nombre, apellidos, matricula, edad, tipo, direccion, password_user,email"+
+                    "VALUES (?,?,?,?,?,?,?,?)";
             ps.setString(1, usuarioBean.getNombre());
             ps.setString(2, usuarioBean.getApellidos());
-            ps.setString(3, usuarioBean.getCurp());
-            ps.setString(4, usuarioBean.getMatricula());
-            ps.setInt(5, usuarioBean.getEdad());
-            ps.setString(6, usuarioBean.getTipo());
-            ps.setString(7, usuarioBean.getDireccion());
-            ps.setString(8, usuarioBean.getPassword());
-            ps.setString(9, usuarioBean.getEmail());
+            ps.setString(3, usuarioBean.getMatricula());
+            ps.setInt(4, usuarioBean.getEdad());
+            ps.setString(5, usuarioBean.getTipo());
+            ps.setString(6, usuarioBean.getDireccion());
+            ps.setString(7, usuarioBean.getPassword());
+            ps.setString(8, usuarioBean.getEmail());
             return ps.executeUpdate() == 1;
         }catch (SQLException e){
             Logger.getLogger(UsuarioDAO.class.getName())
@@ -127,7 +126,7 @@ public class UsuarioDAO{
 
     public UsuarioBean validarAlumno(String matricula, String password_user){
         UsuarioBean usuarioBean = new UsuarioBean();
-        String query= "SELECT * FROM usuario where matricula = ? AND password_user = ?";
+        String query= "SELECT * FROM usuario WHERE matricula = ? AND password_user = ?";
         conn = new SQLConnection().getConnection();
         try{
             ps = conn.prepareStatement(query);

@@ -47,11 +47,13 @@ public class ServletUsuario extends HttpServlet {
 
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html");
+
         action = request.getServletPath();
         logger.log(Level.INFO, "Path -> "+action);
         switch (action){
@@ -63,33 +65,31 @@ public class ServletUsuario extends HttpServlet {
                         String password_user = request.getParameter("password");
                         usuarioBean = usuarioDAO.validarAlumno(matricula, password_user);
                         if (usuarioBean.getNombre() != null){
-                            urlRedirect = "/get-usuarios";
+                            urlRedirect = "/views/sigebu/index.jsp";
                         }
                     }
                 }catch (Exception e){
-                    urlRedirect = "/get-usuarios";
+                    urlRedirect = "/views/sigebu/index.jsp";
                 }
 
                 break;
             case "/add-usuario":
                 String nombre = request.getParameter("nombre");
                 String apellidos = request.getParameter("apellidos");
+                String matriculaCurp = request.getParameter("matriculaCurp");
+                String tipo = "Alumno";
                 String edad = request.getParameter("edad");
                 String direccion = request.getParameter("direccion");
-                String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                String matriculaCurp = request.getParameter("matriculaCurp");
+                String email = request.getParameter("email");
                 usuarioBean.setNombre(nombre);
                 usuarioBean.setApellidos(apellidos);
-                usuarioBean.setEdad(Integer.parseInt(edad));
-                usuarioBean.setDireccion(direccion);
-                usuarioBean.setEmail(email);
-                usuarioBean.setPassword(password);
                 usuarioBean.setMatricula(matriculaCurp);
-                String tipo = "Alumno";
-                String curp = "";
+                usuarioBean.setEdad(Integer.parseInt(edad));
                 usuarioBean.setTipo(tipo);
-                usuarioBean.setMatricula(curp);
+                usuarioBean.setDireccion(direccion);
+                usuarioBean.setPassword(password);
+                usuarioBean.setEmail(email);
                 ResultAction result = serviceUsuario.save(usuarioBean);
                 urlRedirect = "/get-usuarios?result="+result.isResult()+
                         "&message="+result.getMessage()+"&status="+result.getStatus();
@@ -98,6 +98,8 @@ public class ServletUsuario extends HttpServlet {
             default:
                 break;
         }
+        response.sendRedirect(request.getContextPath()+urlRedirect);
     }
+
 
 }

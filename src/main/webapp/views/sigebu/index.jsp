@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>SIGEBU</title>
-    <jsp:include page="../../templates/head.jsp"></jsp:include>
+    <jsp:include page="../../templates/head.jsp"/>
 </head>
 <body>
-<jsp:include page="../../templates/navbar.jsp"></jsp:include>
-<jsp:include page="../../templates/sidebar.jsp"></jsp:include>
+<jsp:include page="../../templates/navbar.jsp"/>
+<jsp:include page="../../templates/sidebar2.jsp"/>
 <jsp:include page="../../templates/footer.jsp"/>
 
 </body>

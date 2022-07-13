@@ -29,7 +29,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <form id="formulario" class="needs-validation" novalidate action="login-usuario" method="post">
+          <form id="formulario" class="needs-validation" novalidate action="/sigebuApp_war_exploded/login-usuario" method="post">
             <div class="mb-3">
               <label for="matriculaCurp" class="form-label fw-bold">Matricula o Curp</label>
               <input type="text" class="form-control" id="matriculaCurp" name="matriculaCurp" aria-describedby="emailHelp" placeholder="Ingresa Matricula o Curp" required>

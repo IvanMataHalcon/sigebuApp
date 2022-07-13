@@ -63,7 +63,7 @@ public class ServletUsuario extends HttpServlet {
                         String password_user = request.getParameter("password");
                         usuarioBean = usuarioDAO.validarAlumno(matricula, password_user);
                         if (usuarioBean.getNombre() != null){
-                            urlRedirect = "/views/sigebu/index.jsp";
+                            urlRedirect = "/get-usuarios";
                         }
                     }
                 }catch (Exception e){
@@ -85,22 +85,15 @@ public class ServletUsuario extends HttpServlet {
                 usuarioBean.setDireccion(direccion);
                 usuarioBean.setEmail(email);
                 usuarioBean.setPassword(password);
-                int lenght = matriculaCurp.length();
-                if (lenght == 18){
-                    usuarioBean.setCurp(matriculaCurp);
-                    String tipo = "Docente";
-                    usuarioBean.setTipo(tipo);
-                    ResultAction result = serviceUsuario.save(usuarioBean);
-                    urlRedirect = "/get-usuarios?result="+result.isResult()+
-                            "&message="+result.getMessage()+"&status="+result.getStatus();
-                }else if(lenght == 10){
-                    usuarioBean.setMatricula(matriculaCurp);
-                    String tipo = "Alumno";
-                    usuarioBean.setTipo(tipo);
-                    ResultAction result = serviceUsuario.save(usuarioBean);
-                    urlRedirect = "/get-usuarios?result="+result.isResult()+
-                            "&message="+result.getMessage()+"&status="+result.getStatus();
-                }
+                usuarioBean.setMatricula(matriculaCurp);
+                String tipo = "Alumno";
+                String curp = "";
+                usuarioBean.setTipo(tipo);
+                usuarioBean.setMatricula(curp);
+                ResultAction result = serviceUsuario.save(usuarioBean);
+                urlRedirect = "/get-usuarios?result="+result.isResult()+
+                        "&message="+result.getMessage()+"&status="+result.getStatus();
+
                 break;
             default:
                 break;

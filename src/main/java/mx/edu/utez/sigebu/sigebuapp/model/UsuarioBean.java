@@ -6,7 +6,7 @@ public class UsuarioBean {
     String apellidos;
     String curp;
     String matricula;
-    char edad;
+    int edad;
     String tipo;
     String direccion;
     String password;
@@ -15,7 +15,7 @@ public class UsuarioBean {
     public UsuarioBean() {
     }
 
-    public UsuarioBean(int id, String nombre, String apellidos, String curp, String matricula, char edad, String tipo, String direccion, String password, String email) {
+    public UsuarioBean(int id, String nombre, String apellidos, String curp, String matricula, int edad, String tipo, String direccion, String password, String email) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -68,11 +68,11 @@ public class UsuarioBean {
         this.matricula = matricula;
     }
 
-    public char getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(char edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 

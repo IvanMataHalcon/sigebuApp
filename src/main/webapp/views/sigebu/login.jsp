@@ -41,7 +41,7 @@
             </div>
 
             <div class="d-grid gap-2 col-6 mx-auto">
-              <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+              <button type="submit" class="btn btn-primary btn-lg" name="accion" value="ingresar">Iniciar Sesión</button>
 
             </div>
 

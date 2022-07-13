@@ -5,6 +5,7 @@
   Time: 02:08 p. m.
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <jsp:include page="../../templates/head.jsp"></jsp:include>
   <title>SIGEBU</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/style.css">
@@ -23,7 +25,7 @@
   <div class="card">
     <div class="card-body ">
 
-      <form class="row needs-validation" id="formulario" novalidate>
+      <form class="row needs-validation" id="formulario" novalidate action="add-usuario" method="POST">
         <div class="col-12 text-center">
           <img src="../../assets/imgs/LOGO-SIGUEBU2.png" class="logo_sigebu" alt="">
           <h1>REGISTRARSE</h1>
@@ -92,5 +94,6 @@
   </div>
 </div>
 <script src="../../js/javascript.js"></script>
+<jsp:include page="../../templates/footer.jsp"/>
 </body>
 </html>

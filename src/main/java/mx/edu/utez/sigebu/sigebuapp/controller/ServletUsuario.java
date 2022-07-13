@@ -2,6 +2,8 @@ package mx.edu.utez.sigebu.sigebuapp.controller;
 
 import mx.edu.utez.sigebu.sigebuapp.model.UsuarioBean;
 import mx.edu.utez.sigebu.sigebuapp.model.UsuarioDAO;
+import mx.edu.utez.sigebu.sigebuapp.service.ServiceUsuario;
+import mx.edu.utez.sigebu.sigebuapp.utils.ResultAction;
 
 
 import javax.servlet.ServletException;
@@ -26,6 +28,7 @@ public class ServletUsuario extends HttpServlet {
     String urlRedirect = "/get-usuarios";
     Logger logger = Logger.getLogger("ServletUsuario");
     String action;
+    ServiceUsuario serviceUsuario = new ServiceUsuario();
     UsuarioDAO usuarioDAO = new UsuarioDAO();
     UsuarioBean usuarioBean = new UsuarioBean();
     @Override
@@ -36,7 +39,7 @@ public class ServletUsuario extends HttpServlet {
         logger.log(Level.INFO, "Path -> "+action);
         switch (action){
             case "/get-usuarios":
-                urlRedirect = "/views/sigebu/login.jsp";
+                urlRedirect = "/views/sigebu/index.jsp";
                 break;
             default:
                 urlRedirect = "/get-pokemons";
@@ -67,6 +70,37 @@ public class ServletUsuario extends HttpServlet {
                     urlRedirect = "/get-usuarios";
                 }
 
+                break;
+            case "/add-usuario":
+                String nombre = request.getParameter("nombre");
+                String apellidos = request.getParameter("apellidos");
+                String edad = request.getParameter("edad");
+                String direccion = request.getParameter("direccion");
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                String matriculaCurp = request.getParameter("matriculaCurp");
+                usuarioBean.setNombre(nombre);
+                usuarioBean.setApellidos(apellidos);
+                usuarioBean.setEdad(Integer.parseInt(edad));
+                usuarioBean.setDireccion(direccion);
+                usuarioBean.setEmail(email);
+                usuarioBean.setPassword(password);
+                int lenght = matriculaCurp.length();
+                if (lenght == 18){
+                    usuarioBean.setCurp(matriculaCurp);
+                    String tipo = "Docente";
+                    usuarioBean.setTipo(tipo);
+                    ResultAction result = serviceUsuario.save(usuarioBean);
+                    urlRedirect = "/get-usuarios?result="+result.isResult()+
+                            "&message="+result.getMessage()+"&status="+result.getStatus();
+                }else if(lenght == 10){
+                    usuarioBean.setMatricula(matriculaCurp);
+                    String tipo = "Alumno";
+                    usuarioBean.setTipo(tipo);
+                    ResultAction result = serviceUsuario.save(usuarioBean);
+                    urlRedirect = "/get-usuarios?result="+result.isResult()+
+                            "&message="+result.getMessage()+"&status="+result.getStatus();
+                }
                 break;
             default:
                 break;

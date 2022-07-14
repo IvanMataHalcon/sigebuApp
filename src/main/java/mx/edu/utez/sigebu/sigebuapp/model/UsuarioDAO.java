@@ -1,5 +1,6 @@
 package mx.edu.utez.sigebu.sigebuapp.model;
 
+import mx.edu.utez.sigebu.sigebuapp.utils.MySQLConnection;
 import mx.edu.utez.sigebu.sigebuapp.utils.SQLConnection;
 
 import java.sql.*;
@@ -15,26 +16,26 @@ public class UsuarioDAO{
 
     PreparedStatement ps;
     ResultSet rs;
-    public List<UsuarioBean> findAll(){
+
+    public List findAll(){
         List<UsuarioBean> usuarioBeans = new ArrayList<>();
-        UsuarioBean usuarioBean = null;
+        String query = "SELECT * FROM USUARIO;";
         try{
             conn = new SQLConnection().getConnection();
-            String query = "SELECT * FROM USUARIO;";
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while(rs.next()){
-                usuarioBean = new UsuarioBean();
-                usuarioBean.setId(rs.getInt("id"));
-                usuarioBean.setNombre(rs.getString("nombre"));
-                usuarioBean.setApellidos(rs.getString("apellidos"));
-                usuarioBean.setCurp(rs.getString("curp"));
-                usuarioBean.setMatricula(rs.getString("matricula"));
-                usuarioBean.setEdad(rs.getInt("edad"));
-                usuarioBean.setTipo(rs.getString("tipo"));
-                usuarioBean.setDireccion(rs.getString("direccion"));
-                usuarioBean.setPassword(rs.getString("password_user"));
-                usuarioBean.setEmail(rs.getString("email"));
+                UsuarioBean usuarioBean = new UsuarioBean();
+                usuarioBean.setId(rs.getInt(1));
+                usuarioBean.setNombre(rs.getString(2));
+                usuarioBean.setApellidos(rs.getString(3));
+                usuarioBean.setCurp(rs.getString(4));
+                usuarioBean.setMatricula(rs.getString(5));
+                usuarioBean.setEdad(rs.getInt(6));
+                usuarioBean.setTipo(rs.getString(7));
+                usuarioBean.setDireccion(rs.getString(8));
+                usuarioBean.setPassword(rs.getString(9));
+                usuarioBean.setEmail(rs.getString(10));
                 usuarioBeans.add(usuarioBean);
             }
 
@@ -46,12 +47,41 @@ public class UsuarioDAO{
         }
         return usuarioBeans;
     }
-    public boolean save(UsuarioBean usuarioBean){
+    public boolean agregar(UsuarioBean usuarioBean){
+        int r=0;
+        String query = "INSERT INTO USUARIO"+
+        "nombre, apellidos, matricula, edad, tipo, direccion, password_user,email"+
+                "VALUES (?,?,?,?,?,?,?,?)";
         try{
-            conn = new SQLConnection().getConnection();
-            String query = "INSERT INTO USUARIO"+
-                    "nombre, apellidos, matricula, edad, tipo, direccion, password_user,email"+
-                    "VALUES (?,?,?,?,?,?,?,?)";
+            conn= new MySQLConnection().getConnection();
+            ps=conn.prepareStatement(query);
+            ps.setString(1, usuarioBean.getNombre());
+            ps.setString(2, usuarioBean.getApellidos());
+            ps.setString(3, usuarioBean.getMatricula());
+            ps.setInt(4, usuarioBean.getEdad());
+            ps.setString(5, usuarioBean.getTipo());
+            ps.setString(6, usuarioBean.getDireccion());
+            ps.setString(7, usuarioBean.getPassword());
+            ps.setString(8, usuarioBean.getEmail());
+            return ps.executeUpdate() == 1;
+
+        }catch (Exception e){
+            Logger.getLogger(UsuarioDAO.class.getName())
+                    .log(Level.SEVERE, "Error save", e);
+            return false;
+        }finally {
+            closeConnection();
+        }
+
+    }
+    public boolean save(UsuarioBean usuarioBean){
+        conn= new MySQLConnection().getConnection();
+        String query = "INSERT INTO USUARIO"+
+                "(nombre_usuario, apellidos_usuario, matricula_usuario, edad_usuario, tipo_usuario, direccion_usuario, correo_usuario, contraseña_usuario) "+
+                "VALUES (?,?,?,?,?,?,?,?)";
+
+        try{
+            ps=conn.prepareStatement(query);
             ps.setString(1, usuarioBean.getNombre());
             ps.setString(2, usuarioBean.getApellidos());
             ps.setString(3, usuarioBean.getMatricula());

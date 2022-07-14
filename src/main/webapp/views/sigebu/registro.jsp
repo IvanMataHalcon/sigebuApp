@@ -25,7 +25,7 @@
   <div class="card">
     <div class="card-body ">
 
-      <form class="row needs-validation" id="formulario" novalidate action="/sigebuApp_war_exploded/add-usuario" method="POST">
+       <form class="row needs-validation" id="formulario" novalidate action="/sigebuApp_war_exploded/add-usuario" method="POST">
         <div class="col-12 text-center">
           <img src="../../assets/imgs/LOGO-SIGUEBU2.png" class="logo_sigebu" alt="">
           <h1>REGISTRARSE</h1>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+          <button type="submit" class="btn btn-primary btn-lg" >Registrarse</button>
         </div>
         <br>
         <div class="col-12 text-center" >

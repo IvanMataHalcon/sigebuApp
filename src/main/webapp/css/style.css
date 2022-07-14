@@ -46,3 +46,6 @@
 .cerrar:hover{
     background-color: #035240;
 }
+.contenedor{
+    float: right;
+}

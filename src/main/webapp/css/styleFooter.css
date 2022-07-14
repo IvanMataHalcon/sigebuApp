@@ -10,6 +10,7 @@
     padding:0px 0;
     color:black;
     background-color:#00aa83;
+    position: static;
 }
 
 .footer-dark h3 {
